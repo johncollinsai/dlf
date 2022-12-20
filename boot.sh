@@ -1,10 +1,8 @@
 #!/bin/bash
+# this script is used to boot a Docker container
+# see https://github.com/miguelgrinberg/microblog/blob/main/boot.sh
 
-# I use boot.sh rather than ENTRYPOINT in the Dockerfile because the exec command 
-# in my boot.sh does not work here in Dockerfile in ENTRYPOINT. Don't know why
 source venv/bin/activate
 
-# I follow https://github.com/photonics-project/notebooks/blob/main/Dockerfile
-# but put jimustafa's ENTRYPOINT here in boot.sh
-# NB - explicitly pass Voila.ip to account for changes in voila-0.3.0
-exec voila dlf.ipynb --Voila.ip=0.0.0.0 --port=8080 --no-browser --strip_sources=False --theme=dark
+# following https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/blob/main/hello-app/Dockerfile
+exec gunicorn -b :8080 --access-logfile - --error-logfile - dlf:app
