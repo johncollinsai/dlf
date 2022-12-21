@@ -1,8 +1,7 @@
 #!/bin/bash
 # this script is used to boot a Docker container
-# see https://github.com/miguelgrinberg/microblog/blob/main/boot.sh
 
 source venv/bin/activate
 
-# following https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/blob/main/hello-app/Dockerfile
+# options specify the file paths for the access log and error log files, respectively
 exec gunicorn -b :8080 --access-logfile - --error-logfile - dlf:app

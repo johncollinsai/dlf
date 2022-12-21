@@ -3,7 +3,7 @@ FROM python:slim
 WORKDIR /home/posts/dlf
 
 COPY requirements.txt requirements.txt
-RUN python -m venv venv
+RUN python3 -m venv venv
 RUN venv/bin/pip install -r requirements.txt
 RUN venv/bin/pip install gunicorn
 
