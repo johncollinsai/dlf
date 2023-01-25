@@ -13,7 +13,7 @@ spec:
         run: dlf
     spec:
       containers:
-      - image: asia-southeast1-docker.pkg.dev/johncollins/johncollins/johncollins:v0.15.0
+      - image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
         imagePullPolicy: IfNotPresent
         name: dlf
         ports:
